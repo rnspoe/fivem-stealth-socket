@@ -16,8 +16,8 @@ let clientWs: WebSocket;
 
 	app.exposeFunction('sendPayload', async (retval: string) => {
 		const [payloadId] = JSON.parse(retval).args;
-		console.log(`sending '${payloadId}' payload to websocket client`)
 		if (payloadId !== '' && clientWs != undefined) {
+			console.log(`sending '${payloadId}' payload to websocket client`)
 			const payload = await fs.readFile(`./payloads/${payloadId}.js`, 'utf-8');
 			clientWs.send(payload);
 		}
@@ -27,6 +27,7 @@ let clientWs: WebSocket;
 })();
 
 wss.on('connection', async (ws: WebSocket) => {
+	console.log('a websocket has connected to the server')
 	clientWs = ws;
 
 	ws.on('message', (e) => {
