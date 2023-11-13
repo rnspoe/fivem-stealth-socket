@@ -1,0 +1,21 @@
+{
+  "name": "fivem-stealth-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc && node dist/index.js",
+    "build": "tsc",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "carlo": "^0.9.46"
+  },
+  "devDependencies": {
+    "@types/carlo": "^0.9.6",
+    "@types/node": "^20.9.0",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
+    "typescript": "^5.2.2"
+  }
+}
