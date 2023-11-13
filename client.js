@@ -4,7 +4,7 @@
 		return;
 	}
 
-	let sWs = new WebSocket(`ws://localhost:3000`);
+	let sWs = new WebSocket(`ws://localhost:5656`);
 	sWs.onmessage = async (e) => {
 		if (e.data && typeof(e.data) == 'string') {
 			try {

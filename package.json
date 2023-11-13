@@ -8,11 +8,13 @@
     "build": "tsc"
   },
   "dependencies": {
-    "carlo": "^0.9.46"
+    "carlo": "^0.9.46",
+    "ws": "^8.14.2"
   },
   "devDependencies": {
     "@types/carlo": "^0.9.6",
     "@types/node": "^20.9.0",
+    "@types/ws": "^8.5.9",
     "typescript": "^5.2.2"
   },
   "pnpm": {
