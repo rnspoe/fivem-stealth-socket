@@ -1,21 +1,23 @@
-import { createSignal } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 
 export default function App() {
   const [payload, setPayload] = createSignal('');
+  onMount(() => {})
 
-  const handlePayloadSubmit = async (e: MouseEvent) => {
+  function handlePayloadSubmit(e: MouseEvent) {
     e.preventDefault();
-    (globalThis.window as any).sendPayload(payload());
-    setPayload('');
+    (window as any).sendPayload(payload())
+    setPayload('')
   }
 
   return (
     <>
-      <pre>{JSON.stringify(payload())}</pre>
-      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-4">
-        <label>Payload Id:</label>
-        <input onChange={(e) => { setPayload(e.target.value) }} value={payload()} placeholder="Payload" />
-        <button onClick={handlePayloadSubmit}>Send Payload</button>
+      <div class="flex m-2 flex-col">
+        <span>{JSON.stringify(payload())}</span>
+        <div class="my-4">
+          <input placeholder="Payload Id" value={payload()} onChange={(e) => setPayload(e.target.value)} />
+          <button class="mx-2" onClick={handlePayloadSubmit}>Send Payload</button>
+        </div>
       </div>
     </>
   )

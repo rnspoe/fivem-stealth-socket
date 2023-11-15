@@ -17,12 +17,11 @@ let clientWs: WebSocket;
 	app.exposeFunction('sendPayload', async (retval: string) => {
 		const [payloadId] = JSON.parse(retval).args;
 		if (payloadId !== '' && clientWs != undefined) {
-			console.log(`sending '${payloadId}' payload to websocket client`)
 			const payload = await fs.readFile(`./payloads/${payloadId}.js`, 'utf-8');
+			console.log(`sending '${payloadId}' payload to websocket client`)
 			clientWs.send(payload);
 		}
 	});
-
 	await app.load(`http://localhost:5173`);
 })();
 

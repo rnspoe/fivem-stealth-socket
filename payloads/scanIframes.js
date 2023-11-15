@@ -4,5 +4,6 @@
 	iframes.forEach((value) => {
 		console.log(`Detected Iframe: ${value.name}`);
 
+		value.contentWindow.addEventListener()
 	})
 })();
